@@ -1,12 +1,5 @@
 import React from "react";
-import { UserButton } from "@clerk/nextjs";
-export default function Home() {
-  return (
-    <div className="h-screen">
-      <UserButton afterSignOutUrl="/"/>
-    </div>
-  )
-}
+
 import "./globals.css"; // Make sure to import your global styles
 
 const YourComponent = () => {
@@ -23,9 +16,6 @@ const YourComponent = () => {
           <button className="capitalize text-md font-semibold  bg-[#3c46ff] p-3 rounded-lg mr-2 px-20 hover:bg-[#0000ff]">login</button>
           <button className="capitalize text-md font-semibold  bg-[#3c46ff] p-3 rounded-lg mr-2 px-20  hover:bg-[#0000ff]">sign up</button>
         </div>
-        <div className="h-screen">
-      <UserButton afterSignOutUrl="/"/>
-    </div>
       </main>
       <footer className=" p-4">
         <h1 className="text-center">Z_Breed</h1>
