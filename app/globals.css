@@ -16,6 +16,13 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+@media (prefers-color-scheme: light) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -32,4 +39,34 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+.label {
+  position: relative;
+  background: transparent;
+
+}
+
+.placeholder {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-60%);
+  transition: transform 0.3s ease-out, font-size 0.3s ease-out;
+  font-size: .9rem;
+  color: #fff;
+  pointer-events: none; 
+  z-index: 1;
+  background: transparent;
+}
+
+.input {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+.focused .placeholder,
+  input:valid + .placeholder {
+  transform: translateY(-180%);
+  font-size: 0.7rem;
 }
