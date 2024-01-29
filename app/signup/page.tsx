@@ -5,7 +5,7 @@ export default function Signup() {
  
 
   return (
-<form className="max-w-sm mx-auto  bg-slate-950 hover:shadow-lg flex flex-col justify-center items-center py-12 mt-28  border-gray-400 rounded-lg p-8">
+<form className="max-w-sm mx-auto  bg-slate-950 hover:shadow-lg flex flex-col justify-center items-center py-12 mt-28 border border-gray-400 rounded-lg p-8">
   
   <div className="mb-5  ">
     <div>

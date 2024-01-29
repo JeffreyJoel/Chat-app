@@ -5,7 +5,7 @@ export default function Login() {
  
 
   return (
-<form className="max-w-sm mx-auto  bg-slate-950 hover:shadow-lg flex flex-col justify-center items-center py-12 mt-32  border-gray-400 rounded-lg p-8">
+<form className="max-w-sm mx-auto  bg-slate-950  hover:shadow-lg flex flex-col justify-center items-center py-12 mt-32 border border-gray-400 rounded-lg p-8">
   <div>
     <h1 className="capitalize text-center font-bold text-xl mb-12">log in</h1>
   </div>
