@@ -26,9 +26,9 @@ const YourComponent = () => {
             >
             login
           </Link>
-          <button className="capitalize text-md font-semibold bg-[#3c46ff] p-3 rounded-lg mr-2 px-20 hover:bg-[#0000ff]">
+          <Link href="/signup" className="capitalize text-md font-semibold bg-[#3c46ff] p-3 rounded-lg mr-2 px-20 hover:bg-[#0000ff]">
             sign up
-          </button>
+          </Link>
         </div>
       </main>
       <footer className="p-4">
