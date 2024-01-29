@@ -5,7 +5,7 @@ export default function Signup() {
  
 
   return (
-<form className="max-w-sm bg-slate-950 mx-auto hover:shadow-lg border mt-[20%] border-gray-400 rounded-lg p-8">
+<form className="max-w-sm mx-auto  bg-slate-950 hover:shadow-lg flex flex-col justify-center items-center py-12 mt-28  border-gray-400 rounded-lg p-8">
   
   <div className="mb-5  ">
     <div>
@@ -25,8 +25,8 @@ export default function Signup() {
   <div className="flex items-start mb-5">
 
    <div>
-    <p className="text-sm">Already have an account? <Link href="/login" className=" text-blue-400 hover:text-blue-200">Login</Link></p>
-   </div>
+    <p className="text-sm tracking-wider">Already have an account? <Link href="/login" className=" text-blue-400 hover:text-blue-200">Login</Link></p>
+   </div> 
   </div>
   <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register new account</button>
 </form>
