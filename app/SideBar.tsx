@@ -10,8 +10,11 @@ const ChatGPTUI = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [message, setMessage] = useState("");
 
-  const handleSendMessage = () => {
-    // Add your logic for sending a message
+  const handleKeyDown = (event:any) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    handleUserInput()
+    }
   };
   const handleUserInput = () => {
     // if (input.trim() === "") return;
@@ -138,6 +141,7 @@ const ChatGPTUI = () => {
               rows={1}
               placeholder="Message"
               value={input}
+              onKeyDown={handleKeyDown}
               onChange={(e) => setInput(e.target.value)}
               className="m-0 w-full resize-none border-0 bg-[#343541] py-[10px] pr-10 focus:ring-0 focus-visible:ring-0 md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4"
               style={{ maxHeight: "200px", height: "", overflowY: "hidden" }}
