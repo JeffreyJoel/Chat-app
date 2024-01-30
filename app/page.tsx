@@ -28,14 +28,10 @@ const ChatComponent: React.FC = () => {
       <Loading/>
     ) : status === 'authenticated' ? (
       // Render the SideNavbar component if authenticated
-      // <SideNavbar />
-      <Loading/>
-
+      <SideNavbar />
     ) : (
       // Render the YourComponent component if not authenticated
-      // <YourComponent />
-      <Loading/>
-
+      <YourComponent />
     )}
   </div>
   );
