@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const YourComponent = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#000] ">
       <header>
         <h1 className="font-extrabold text-2xl p-6">
           Z_<span className="text-[#0000ff]">Breed</span>

@@ -32,7 +32,7 @@ const ChatGPTUI = () => {
   };
 
   return (
-    <div className="sm:relative max-h-[100vh]">
+    <div className="sm:relative max-h-[100vh] bg-[#343541] ">
       <div
         className={`${
           isSidebarOpen ? "z-20 w-1/2 absolute md:relative lg:relative md:w-48 lg:w-60 min-h-screen" : "hidden"
@@ -105,8 +105,8 @@ const ChatGPTUI = () => {
           </div>
     </div>
     
-    
-    <div className=  {`${isSidebarOpen ? "relative md:absolute left-0 right-[-22%] lg:bottom md:top-[86vh]  mx-auto w-[60%]" : "right-0 absolute md:absolute left-0 lg:bottom md:top-[86vh] top-[84vh]  mx-auto w-[60%]"
+    <div className=  {`${isSidebarOpen ? "absolute left-0 right-[-22%] lg:bottom md:top-[84vh]   mx-auto w-[60%]" : "right-0 relative md:absolute left-0  lg:bottom md:top-[84vh] t  mx-auto w-[60%]"
+
         }`}>
       <div className=" w-full items-center">
         <div className="overflow-hidden [&amp;:has(textarea:focus)]:border-token-border-xheavy [&amp;:has(textarea:focus)]:shadow-[0_2px_6px_rgba(0,0,0,.05)] flex flex-col w-full dark:border-token-border-heavy flex-grow relative border border-token-border-heavy dark:text-white rounded-2xl bg-white dark:bg-gray-800 shadow-[0_0_0_2px_rgba(255,255,255,0.95)] dark:shadow-[0_0_0_2px_rgba(52,53,65,0.95)]">
