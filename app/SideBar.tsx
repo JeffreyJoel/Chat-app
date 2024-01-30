@@ -107,6 +107,7 @@ const ChatGPTUI = () => {
               onClick={toggleSidebar}
             />
           </div>
+
         </div>
         <div className="overflow-container max-h-[70vh] overflow-y-auto max-w-[600px] p-4 mx-auto">
           {messages.map((message, index) => (
@@ -119,6 +120,7 @@ const ChatGPTUI = () => {
           ))}
         </div>
       </div>
+
 
       <div
         className={`${
