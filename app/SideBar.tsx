@@ -10,10 +10,10 @@ const ChatGPTUI = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [message, setMessage] = useState("");
 
-  const handleKeyDown = (event:any) => {
-    if (event.key === 'Enter') {
+  const handleKeyDown = (event: any) => {
+    if (event.key === "Enter") {
       event.preventDefault();
-    handleUserInput()
+      handleUserInput();
     }
   };
   const handleUserInput = () => {
@@ -70,26 +70,24 @@ const ChatGPTUI = () => {
           </div>
         </div>
         <div className="overflow-container overflow-y-auto h-[550px] pt-3">
-        {messages.map((message, index) => (
-    <div key={index}>
-      {message.isUser ? (
-        <>
-          {/* <span>You</span> */}
-          <p className="p-2">{message.text.slice(0, 20)+ "..."}</p>
-        </>
-      ) : (
-        <>
-          {/* <span>Other User</span>
+          {messages.map((message, index) => (
+            <div key={index}>
+              {message.isUser ? (
+                <>
+                  {/* <span>You</span> */}
+                  <p className="p-2">{message.text.slice(0, 20) + "..."}</p>
+                </>
+              ) : (
+                <>
+                  {/* <span>Other User</span>
           <p>{message.text}</p> */}
-        </>
-      )}
-    </div>
-  ))}
-        
-          
+                </>
+              )}
+            </div>
+          ))}
         </div>
         <div className="text-center mt-4 flex items-center justify-between absolute bottom-[20px] left-0 right-0 mx-auto w-[90%]">
-        <h1 className="text-center ">&copy; 2024</h1>
+          <h1 className="text-center ">&copy; 2024</h1>
         </div>
       </div>
 
@@ -110,20 +108,20 @@ const ChatGPTUI = () => {
               onClick={toggleSidebar}
             />
           </div>
-
         </div>
         <div className="overflow-container max-h-[70vh] overflow-y-auto max-w-[600px] p-4 mx-auto">
           {messages.map((message, index) => (
             <div key={index}>
               <div className={"text-start mb-4 break-words"}>
-                <span className="font-bold">{message.isUser ? "You" : "GPT"}</span>
+                <span className="font-bold">
+                  {message.isUser ? "You" : "GPT"}
+                </span>
                 <p>{message.text}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
-
 
       <div
         className={`${

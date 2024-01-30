@@ -10,27 +10,16 @@ const ChatComponent: React.FC = () => {
 
   const [loading, setLoading] = useState(true);
 
-
-  // if (status === "authenticated") {
-  //   return (
-  //     <div className=" align-middle  bg-[#343541] ">
-  //       <SideNavbar />{" "}
-  //     </div>
-  //   );
-  // }
-
-  // return <YourComponent />;
-
   return (
     <div>
     {status === 'loading' ? (
-      // Render a loading indicator or message while checking authentication
+   
       <Loading/>
     ) : status === 'authenticated' ? (
-      // Render the SideNavbar component if authenticated
+
       <SideNavbar />
     ) : (
-      // Render the YourComponent component if not authenticated
+      
       <YourComponent />
     )}
   </div>
