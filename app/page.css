@@ -1,8 +1,8 @@
 body {
-  margin: 0;
+  /* margin: 0;
   padding: 0;
   background-color: #343541; 
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 .overflow-container::-webkit-scrollbar {
   width: 3px; 
