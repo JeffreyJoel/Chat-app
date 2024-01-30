@@ -7,24 +7,31 @@ import YourComponent from "./auth/login/page";
 const ChatComponent: React.FC = () => {
   const { data: session, status } = useSession();
 
-  if (status === "authenticated") {
-    return (
-      <div className=" align-middle  bg-[#343541] ">
-        <SideNavbar />{" "}
-      </div>
-    );
-  }
-
-  return <YourComponent />;
-
-  // return (
-  //   <>
+  // if (status === "authenticated") {
+  //   return (
   //     <div className=" align-middle  bg-[#343541] ">
-  //       {/* <SideNavbar /> */}
-  //       <YourComponent/>
+  //       <SideNavbar />{" "}
   //     </div>
-  //   </>
-  // );
+  //   );
+  // }
+
+  // return <YourComponent />;
+
+  return (
+    <div className="">
+      {/* <div className="align-middle bg-[#343541]"> */}
+      {status === "authenticated" ? (
+        // <div className="bg-[#343541] align-middle">
+        <SideNavbar />
+        // </div>
+      ) : (
+        // <div className="">
+          <YourComponent />
+        // </div>
+      )}
+      {/* </div> */}
+    </div>
+  );
 };
 
 export default ChatComponent;
