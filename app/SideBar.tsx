@@ -86,7 +86,7 @@ const ChatGPTUI = () => {
           
         </div>
         <div className="text-center mt-4 flex items-center justify-between absolute bottom-[20px] left-0 right-0 mx-auto w-[90%]">
-        <h1>&copy 2024</h1>
+        <h1 className="text-center ">&copy; 2024</h1>
         </div>
       </div>
 
@@ -168,7 +168,7 @@ const ChatGPTUI = () => {
           </div>
         </div>
         <div className="text-center mt-4">
-          <h1>&copy 2024</h1>
+          <h1>&copy; 2024</h1>
         </div>
       </div>
     </div>
