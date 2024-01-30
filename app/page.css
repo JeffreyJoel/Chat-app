@@ -52,7 +52,8 @@ padding: 4px;
   padding-top: 3rem;
   position: absolute;
   bottom: 50%;
-  right: 50%;
+  right: 35%;
+  left: 35%;
 
 }
 @keyframes spinner {
