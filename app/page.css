@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #343541; 
+  background-repeat: no-repeat;
+}
+.overflow-container::-webkit-scrollbar {
+  width: 3px; 
+}
+
+/* Handle */
+.overflow-container::-webkit-scrollbar-thumb {
+  background-color: #4c4c4c;
+  border-radius: 5px; 
+}
+
+/* Track */
+.overflow-container::-webkit-scrollbar-track {
+  background-color: #1f1f1f;
+}
+
+/* Handle on hover */
+.overflow-container::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+/* Add a custom scrollbar corner (optional) */
+.overflow-container::-webkit-scrollbar-corner {
+  background-color: #1f1f1f; 
+}
+.container{
+width: 500px;
+margin: mx-auto;
+padding: 4px;
+
+}
