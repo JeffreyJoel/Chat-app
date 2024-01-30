@@ -105,7 +105,7 @@ const ChatGPTUI = () => {
           </div>
     </div>
     
-    <div className=  {`${isSidebarOpen ? "absolute left-0 right-[-22%] lg:bottom md:top-[84vh]   mx-auto w-[60%]" : "right-0 relative md:absolute left-0  lg:bottom md:top-[84vh] t  mx-auto w-[60%]"
+    <div className=  {`${isSidebarOpen ? "absolute left-0 right-[-22%] lg:bottom md:top-[84vh] top[88vh]  mx-auto w-[60%]" : "right-0 relative md:absolute left-0  lg:bottom md:top-[84vh] top[88vh]  mx-auto w-[60%]"
 
         }`}>
       <div className=" w-full items-center">
