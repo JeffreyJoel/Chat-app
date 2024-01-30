@@ -1,9 +1,10 @@
 "use client";
 import { useState, useRef, useEffect, SetStateAction } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-// import { signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -11,8 +12,21 @@ export default function Signup() {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const signup = async () => {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
-    console.log(res.user.uid);
+    try {
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      console.log(res.user.uid);
+
+      await setDoc(doc(db, "users", res.user.uid), {
+        email: email,
+        username: email,
+      });
+      signIn("credentials", {
+        email,
+        password,
+        redirect: true,
+        callbackUrl: "/",
+      });
+    } catch (error) {}
   };
 
   return (
