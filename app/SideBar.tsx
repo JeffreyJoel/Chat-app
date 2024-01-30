@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import "./page.css";
 
@@ -9,6 +9,24 @@ const ChatGPTUI = () => {
   const [input, setInput] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [message, setMessage] = useState("");
+  useEffect(() => {
+    // Check screen width and set isSidebarOpen to close sidebar on small screens
+    const handleResize = () => {
+      setIsSidebarOpen(window.innerWidth >= 768);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
 
   const handleKeyDown = (event: any) => {
     if (event.key === "Enter") {
@@ -20,7 +38,8 @@ const ChatGPTUI = () => {
     // if (input.trim() === "") return;
     const userMessage = { text: input, isUser: true };
     setMessages([...messages, userMessage]);
-    setInput(""); // Clear the input field
+    // Clear the input field
+    setInput(""); 
 
     // Simulate GPT response (replace this with actual API call)
     setTimeout(() => {
@@ -74,13 +93,11 @@ const ChatGPTUI = () => {
             <div key={index}>
               {message.isUser ? (
                 <>
-                  {/* <span>You</span> */}
                   <p className="p-2">{message.text.slice(0, 20) + "..."}</p>
                 </>
               ) : (
                 <>
-                  {/* <span>Other User</span>
-          <p>{message.text}</p> */}
+                  {}
                 </>
               )}
             </div>
@@ -126,8 +143,8 @@ const ChatGPTUI = () => {
       <div
         className={`${
           isSidebarOpen
-            ? "absolute left-0 right-[-22%] lg:bottom top-[84vh]   mx-auto w-[60%]"
-            : "right-0 relative md:absolute left-0  lg:bottom top-[84vh]   mx-auto w-[60%]"
+            ? "absolute left-0 right-[-22%] top-[84vh]  mx-auto w-[60%]"
+            : "right-0 absolute left-0  top-[84vh]   mx-auto w-[60%]"
         }`}
       >
         <div className=" w-full items-center">
