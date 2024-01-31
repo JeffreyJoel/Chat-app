@@ -7,6 +7,20 @@ import Image from "next/image";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState();
+
+  const handleSignIn = () => {
+    try {
+      signIn("credentials", {
+        email,
+        password,
+        redirect: true,
+        callbackUrl: "/",
+      });
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <form className="max-w-sm mx-auto w-[90%] bg-slate-950 hover:shadow-lg flex flex-col justify-center items-center py-12 mt-14 border-2 border-gray-600 rounded-lg p-8">
@@ -15,7 +29,14 @@ export default function Login() {
           log in
         </h1>
       </div>
-      <a className="flex align-middle items-center justify-center w-[90%] py-4 mb-6 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 focus:ring-4 focus:ring-grey-300 bg-gray-900 hover:bg-gray-800 hover:border-2 hover:border-slate-300 active:border-2 active:border-slate-500 cursor-pointer">
+      <div
+        className="flex align-middle items-center justify-center w-[90%] py-4 mb-6 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 focus:ring-4 focus:ring-grey-300 bg-gray-900 hover:bg-gray-800 hover:border-2 hover:border-slate-300 active:border-2 active:border-slate-500 cursor-pointer"
+        onClick={() => {
+          signIn("google", {
+            callbackUrl: "/",
+          });
+        }}
+      >
         <Image
           src="/logo-google.png"
           alt="Google Logo"
@@ -24,11 +45,11 @@ export default function Login() {
           className="h-5 mr-2"
         />
         Log in with Google
-      </a>
+      </div>
       <div className=" items-center mb-3">
         <p className="mx-4 text-grey-600">or</p>
       </div>
-   
+
       <div className="mb-5">
         <label
           htmlFor="email"
@@ -74,20 +95,17 @@ export default function Login() {
       <div className="w-[90%]">
         <button
           onClick={(e) => {
-            e.preventDefault();
-            signIn("credentials", {
-              email,
-              password,
-              redirect: true,
-              callbackUrl: "/",
-            });
+            e.preventDefault(); 
+            handleSignIn();
           }}
           disabled={!email || !password}
-          type="submit"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Submit
         </button>
+        {error && (
+          <p className="text-red-500 text-sm mt-1">Passwords do not match</p>
+        )}
       </div>
     </form>
   );
