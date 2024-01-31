@@ -11,7 +11,7 @@ const ChatComponent: React.FC = () => {
   const auth = useSession({
     required: true,
     onUnauthenticated() {
-      redirect('/');
+      redirect('/auth/login');
     },
   });
   const { data: session, status } = useSession();
@@ -21,16 +21,16 @@ const ChatComponent: React.FC = () => {
 
   return (
     <div>
-    {status === "loading" ? (
+    {/* {status === "loading" ? (
    
-      <Loading/>
-    ) : status === 'authenticated' ? (
+      <Loading/> */}
+    {/* ) : status === 'authenticated' ? ( */}
 
       <ChatGptUi />
-    ) : (
+    {/* ) : ( */}
       
-      <YourComponent />
-    )}
+      {/* <YourComponent /> */}
+    {/* )} */}
   </div>
   );
 };
