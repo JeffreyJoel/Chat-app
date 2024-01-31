@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import SideNavbar from "./SideBar";
+import ChatGptUi from "./ChatGptUi";
 import { useSession } from "next-auth/react";
 import "./page.css";
 import YourComponent from "./auth/login/page";
@@ -17,7 +17,7 @@ const ChatComponent: React.FC = () => {
       <Loading/>
     ) : status === 'authenticated' ? (
 
-      <SideNavbar />
+      <ChatGptUi />
     ) : (
       
       <YourComponent />
