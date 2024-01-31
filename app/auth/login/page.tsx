@@ -14,15 +14,16 @@ const YourComponent = () => {
         <div className="mt-[25%] md:mt-[10%]">
           <h1 className="capitalize font-bold text-xl">get started</h1>
         </div>
-        <div className="mt-4">
+        <div className="mt-5 w-full max-w-[440px] grid gap-x-3 gap-y-2 sm:grid-cols-2 sm:gap-y-0">
           <Link
             href="/login"
-            className="capitalize text-md font-semibold bg-[#3c46ff] p-3 rounded-lg mr-2 px-20 hover:bg-[#0000ff]"
-            >
-            login
+            className="relative flex h-12 items-center justify-center rounded-md text-center text-base font-medium bg-[#3C46FF] text-[#fff] hover:bg-[#0000FF]" data-testid="login-button">
+              <div className="relative -top-[1px]">Log in</div>
           </Link>
-          <Link href="/signup" className="capitalize text-md font-semibold bg-[#3c46ff] p-3 rounded-lg mr-2 px-20 hover:bg-[#0000ff]">
-            sign up
+          <Link
+            href="/signup"
+            className="relative flex h-12 items-center justify-center rounded-md text-center text-base font-medium bg-[#3C46FF] text-[#fff] hover:bg-[#0000FF]" data-testid="login-button">
+              <div className="relative -top-[1px]">Sign Up</div>
           </Link>
         </div>
       </main>

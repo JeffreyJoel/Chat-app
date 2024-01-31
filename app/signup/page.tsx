@@ -5,6 +5,8 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { auth, db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
+import Image from "next/image";
+
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -30,13 +32,26 @@ export default function Signup() {
   };
 
   return (
-    <form className="max-w-sm mx-auto  bg-slate-950 hover:shadow-lg flex flex-col justify-center items-center py-12 mt-28  border-gray-400 rounded-lg p-8">
+    <form className="max-w-sm mx-auto bg-slate-950 hover:shadow-lg flex flex-col justify-center items-center py-12 mt-10  border-gray-400 rounded-lg p-8">
       <div className="mb-5  ">
         <div>
           <h1 className=" capitalize text-center font-bold text-xl mb-12">
             sign up
           </h1>
         </div>
+        <a className="flex align-middle items-center justify-center w-full py-4 mb-6 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 focus:ring-4 focus:ring-grey-300 bg-gray-900 hover:bg-gray-800 hover:border-2 hover:border-slate-300 active:border-2 active:border-slate-500 cursor-pointer">
+        <Image
+          src="/logo-google.png"
+          alt="Google Logo"
+          width={20}
+          height={20}
+          className="h-5 mr-2"
+        />
+        Sign in with Google
+      </a>
+      <div className=" text-center mb-3">
+        <p className="mx-4 text-grey-600">or</p>
+      </div>
         <label
           htmlFor="email"
           className="block mb-2 text-sm font-medium  dark:text-white"

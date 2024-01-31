@@ -2,19 +2,33 @@
 import { useState, useRef, useEffect, SetStateAction } from "react";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
+import Image from "next/image";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
-
-    <form className="max-w-sm mx-auto  bg-slate-950 hover:shadow-lg flex flex-col justify-center items-center py-12 mt-32  border-gray-400 rounded-lg p-8">
+    <form className="max-w-sm mx-auto w-[90%] bg-slate-950 hover:shadow-lg flex flex-col justify-center items-center py-12 mt-14  border-gray-400 rounded-lg p-8">
       <div>
         <h1 className="capitalize text-center font-bold text-xl mb-12">
           log in
         </h1>
       </div>
+      <a className="flex align-middle items-center justify-center w-[90%] py-4 mb-6 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 focus:ring-4 focus:ring-grey-300 bg-gray-900 hover:bg-gray-800 hover:border-2 hover:border-slate-300 active:border-2 active:border-slate-500 cursor-pointer">
+        <Image
+          src="/logo-google.png"
+          alt="Google Logo"
+          width={20}
+          height={20}
+          className="h-5 mr-2"
+        />
+        Log in with Google
+      </a>
+      <div className=" items-center mb-3">
+        <p className="mx-4 text-grey-600">or</p>
+      </div>
+   
       <div className="mb-5">
         <label
           htmlFor="email"
@@ -57,23 +71,24 @@ export default function Login() {
           </Link>
         </p>
       </div>
-      <button
-        onClick={(e) => {
-          e.preventDefault()
-          signIn("credentials", {
-            email,
-            password,
-            redirect: true,
-            callbackUrl: "/",
-          });
-        }}
-        disabled={!email || !password}
-        type="submit"
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      >
-        Submit
-      </button>
+      <div className="w-[90%]">
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            signIn("credentials", {
+              email,
+              password,
+              redirect: true,
+              callbackUrl: "/",
+            });
+          }}
+          disabled={!email || !password}
+          type="submit"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Submit
+        </button>
+      </div>
     </form>
-
   );
 }

@@ -1,5 +1,6 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { signOut } from "next-auth/react";
 import "./page.css";
 
 const ChatGPTUI = () => {
@@ -19,14 +20,13 @@ const ChatGPTUI = () => {
     handleResize();
 
     // Add event listener for window resize
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Clean up event listener on component unmount
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
-
 
   const handleKeyDown = (event: any) => {
     if (event.key === "Enter") {
@@ -39,7 +39,7 @@ const ChatGPTUI = () => {
     const userMessage = { text: input, isUser: true };
     setMessages([...messages, userMessage]);
     // Clear the input field
-    setInput(""); 
+    setInput("");
 
     // Simulate GPT response (replace this with actual API call)
     setTimeout(() => {
@@ -96,9 +96,7 @@ const ChatGPTUI = () => {
                   <p className="p-2">{message.text.slice(0, 20) + "..."}</p>
                 </>
               ) : (
-                <>
-                  {}
-                </>
+                <>{}</>
               )}
             </div>
           ))}
@@ -106,7 +104,14 @@ const ChatGPTUI = () => {
         <div className="text-center mt-4 flex items-center align-middle justify-between absolute bottom-[20px] left-0 right-0 mx-auto w-[90%]">
           <h1 className="text-center ">&copy; 2024</h1>
           <div>
-            <button className="bg-green-500 rounded-md hover:bg-green-700 active:inset-3 p-2 active:border-2 active:border-slate-300">Sign Out</button>
+            <button
+              className="bg-green-500 rounded-md hover:bg-green-700 active:inset-3 p-2 active:border-2 active:border-slate-300"
+              onClick={() => {
+                signOut();
+              }}
+            >
+              Sign Out
+            </button>
           </div>
         </div>
       </div>
