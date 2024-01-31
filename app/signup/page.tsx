@@ -7,24 +7,25 @@ import { auth, db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
 import Image from "next/image";
 
-
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true);
-  
-  const handleConfirmPasswordChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+  const [error, setError] = useState();
+
+  const handleConfirmPasswordChange = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
     setConfirmPassword(e.target.value);
     setPasswordsMatch(password === e.target.value);
   };
-  const handlePasswordChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+  const handlePasswordChange = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
     setPassword(e.target.value);
     setPasswordsMatch(e.target.value === confirmPassword);
   };
-
-
-
 
   const signup = async () => {
     try {
@@ -41,7 +42,11 @@ export default function Signup() {
         redirect: true,
         callbackUrl: "/",
       });
-    } catch (error) {}
+    } catch (error:any) {
+      console.log(error.message);
+      
+      setError(error.message || "")
+    }
   };
 
   return (
@@ -52,19 +57,26 @@ export default function Signup() {
             sign up
           </h1>
         </div>
-        <a className="flex align-middle items-center justify-center w-full py-4 mb-6 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 focus:ring-4 focus:ring-grey-300 bg-gray-900 hover:bg-gray-800 hover:border-2 hover:border-slate-300 active:border-2 active:border-slate-500 cursor-pointer">
-        <Image
-          src="/logo-google.png"
-          alt="Google Logo"
-          width={20}
-          height={20}
-          className="h-5 mr-2"
-        />
-        Sign in with Google
-      </a>
-      <div className=" text-center mb-3">
-        <p className="mx-4 text-grey-600">or</p>
-      </div>
+        <div
+          className="flex align-middle items-center justify-center w-full py-4 mb-6 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 focus:ring-4 focus:ring-grey-300 bg-gray-900 hover:bg-gray-800 hover:border-2 hover:border-slate-300 active:border-2 active:border-slate-500 cursor-pointer"
+          onClick={(e) => {
+            signIn("google", {
+              callbackUrl: "/",
+            });
+          }}
+        >
+          <Image
+            src="/logo-google.png"
+            alt="Google Logo"
+            width={20}
+            height={20}
+            className="h-5 mr-2"
+          />
+          Sign in with Google
+        </div>
+        <div className=" text-center mb-3">
+          <p className="mx-4 text-grey-600">or</p>
+        </div>
         <label
           htmlFor="email"
           className="block mb-2 text-sm font-medium  dark:text-white"
@@ -112,13 +124,13 @@ export default function Signup() {
           autoComplete="current-password"
           onChange={handleConfirmPasswordChange}
           className={`bg-gray-50 border ${
-            passwordsMatch ? 'border-gray-300' : 'border-red-500'
+            passwordsMatch ? "border-gray-300" : "border-red-500"
           } shadow-sm bg-black border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light`}
           required
         />
-         {!passwordsMatch && (
-        <p className="text-red-500 text-sm mt-1">Passwords do not match</p>
-      )}
+        {!passwordsMatch || error&& (
+          <p className="text-red-500 text-sm mt-1">{error || "Passwords do not match"}</p>
+        )}
       </div>
       <div className="flex items-start mb-5">
         <div>
