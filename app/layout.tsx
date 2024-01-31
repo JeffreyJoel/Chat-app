@@ -12,7 +12,7 @@ export default function RootLayout({
         <SessionProvider>
         {children}
         </SessionProvider>
-        </body>
+      </body>
     </html>
   );
 }

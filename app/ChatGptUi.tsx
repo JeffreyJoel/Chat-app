@@ -58,7 +58,7 @@ const ChatGPTUI = () => {
       <div
         className={`${
           isSidebarOpen
-            ? "z-20 w-1/2 absolute md:relative lg:relative md:w-48 lg:w-60 min-h-screen"
+            ? "z-20 w-1/2 absolute md:relative lg:relative md:w-52 lg:w-64 min-h-screen"
             : "hidden"
         } bg-black text-white p-4 transition-all duration-300 ease-in-out overflow-hidden`}
       >
@@ -78,8 +78,8 @@ const ChatGPTUI = () => {
                   className="icon-md"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M16.7929 2.79289C18.0118 1.57394 19.9882 1.57394 21.2071 2.79289C22.4261 4.01184 22.4261 5.98815 21.2071 7.20711L12.7071 15.7071C12.5196 15.8946 12.2652 16 12 16H9C8.44772 16 8 15.5523 8 15V12C8 11.7348 8.10536 11.4804 8.29289 11.2929L16.7929 2.79289ZM19.7929 4.20711C19.355 3.7692 18.645 3.7692 18.2071 4.2071L10 12.4142V14H11.5858L19.7929 5.79289C20.2308 5.35499 20.2308 4.64501 19.7929 4.20711ZM6 5C5.44772 5 5 5.44771 5 6V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V14C19 13.4477 19.4477 13 20 13C20.5523 13 21 13.4477 21 14V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6C3 4.34314 4.34315 3 6 3H10C10.5523 3 11 3.44771 11 4C11 4.55228 10.5523 5 10 5H6Z"
                     fill="currentColor"
                   ></path>
@@ -103,8 +103,11 @@ const ChatGPTUI = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-4 flex items-center justify-between absolute bottom-[20px] left-0 right-0 mx-auto w-[90%]">
+        <div className="text-center mt-4 flex items-center align-middle justify-between absolute bottom-[20px] left-0 right-0 mx-auto w-[90%]">
           <h1 className="text-center ">&copy; 2024</h1>
+          <div>
+            <button className="bg-green-500 rounded-md hover:bg-green-700 active:inset-3 p-2 active:border-2 active:border-slate-300">Sign Out</button>
+          </div>
         </div>
       </div>
 
@@ -112,7 +115,7 @@ const ChatGPTUI = () => {
       <div
         className={`${
           isSidebarOpen
-            ? " text-center p-4 md:absolute mx-auto md:right-0 top-0 md:w-[75%]  lg:w-[80%]"
+            ? " text-center p-4 md:absolute mx-auto md:right-0 top-0 md:w-[75%]  lg:w-[78%]"
             : "md:absolute p-4 w-full relative  "
         }`}
       >
