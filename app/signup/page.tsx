@@ -12,6 +12,19 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
+  
+  const handleConfirmPasswordChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+    setConfirmPassword(e.target.value);
+    setPasswordsMatch(password === e.target.value);
+  };
+  const handlePasswordChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+    setPassword(e.target.value);
+    setPasswordsMatch(e.target.value === confirmPassword);
+  };
+
+
+
 
   const signup = async () => {
     try {
@@ -32,7 +45,7 @@ export default function Signup() {
   };
 
   return (
-    <form className="max-w-sm mx-auto bg-slate-950 hover:shadow-lg flex flex-col justify-center items-center py-12 mt-10  border-gray-400 rounded-lg p-8">
+    <form className="max-w-sm mx-auto bg-slate-950 hover:shadow-lg flex flex-col justify-center items-center py-12 mt-10 border-2  border-gray-600 rounded-lg p-8">
       <div className="mb-5  ">
         <div>
           <h1 className=" capitalize text-center font-bold text-xl mb-12">
@@ -80,7 +93,7 @@ export default function Signup() {
           id="password"
           name="password"
           autoComplete="current-password"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handlePasswordChange}
           className="shadow-sm bg-black border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
           required
         />
@@ -95,12 +108,17 @@ export default function Signup() {
         <input
           type="password"
           id="repeat-password"
-          name="password"
+          name="confirmPassword"
           autoComplete="current-password"
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          className="shadow-sm bg-black border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+          onChange={handleConfirmPasswordChange}
+          className={`bg-gray-50 border ${
+            passwordsMatch ? 'border-gray-300' : 'border-red-500'
+          } shadow-sm bg-black border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light`}
           required
         />
+         {!passwordsMatch && (
+        <p className="text-red-500 text-sm mt-1">Passwords do not match</p>
+      )}
       </div>
       <div className="flex items-start mb-5">
         <div>

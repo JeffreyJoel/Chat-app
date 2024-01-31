@@ -8,12 +8,12 @@ import Loading from "./loading";
 import { redirect } from "next/navigation";
 const ChatComponent: React.FC = () => {
 
-  // const auth = useSession({
-  //   required: true,
-  //   onUnauthenticated() {
-  //     redirect('/');
-  //   },
-  // });
+  const auth = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect('/');
+    },
+  });
   const { data: session, status } = useSession();
   
 
@@ -21,7 +21,7 @@ const ChatComponent: React.FC = () => {
 
   return (
     <div>
-    {status === 'loading' ? (
+    {status === "loading" ? (
    
       <Loading/>
     ) : status === 'authenticated' ? (
